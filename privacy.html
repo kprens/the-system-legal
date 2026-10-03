@@ -33,11 +33,11 @@ a { color: #4FC3F7; }
 <main>
   <p class="kicker">SYSTEM DECREE · 002</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Effective 2026-08-08</p>
+  <p class="updated">Effective 2026-10-03</p>
 <section>
   <h2>The short version</h2>
-  <p>THE SYSTEM needs an account. Your training log lives on your device and works offline once you are in, but the account is what lets it survive a lost or replaced phone.</p>
-  <p>Your account is an email address and a password, or Apple/Google sign-in. Nothing else is required to use the app.</p>
+  <p>An account is optional. You can log workouts, estimate your 1RM and use the strength ranks offline without signing in. Create an account only if you want cloud backup across devices.</p>
+  <p>If you create an account, you can use an email address and password, Apple, or Google sign-in.</p>
   <p>You can delete your account and everything in it from inside the app, at any time.</p>
   <p>We do not sell your data, do not run ads, and do not share your data with advertisers.</p>
 </section>
@@ -52,7 +52,7 @@ a { color: #4FC3F7; }
 <section>
   <h2>What we store in the cloud (only if you create an account)</h2>
   <p>Your email address, used for sign-in and account recovery only.</p>
-  <p>The same profile and training log described above, so it can be restored on another device.</p>
+  <p>The same profile and training log described above, including the selected bodyweight. If you choose to copy a bodyweight reading from Apple Health into your profile, that selected profile value is included in this account backup.</p>
   <p>The date your 7-day trial started. It is tied to your account so the trial is not restarted by reinstalling the app; it is deleted with your account.</p>
   <p>Hosting is provided by Supabase. Row Level Security is enabled: the database rejects any attempt to read another user's rows.</p>
 </section>
@@ -68,7 +68,7 @@ a { color: #4FC3F7; }
   <p>The built-in coach runs entirely on this device: it answers from the numbers the engine already computed, plus published sports-science ranges for protein. Nothing is sent anywhere.</p>
   <p>The weekly reminder, if you enable it, is a local notification scheduled on the device. No push service and no server is involved, and it can be switched off in PROFILE at any time.</p>
   <p>A future version may add an AI-powered coach. It is switched off in this version and sends nothing anywhere. The rest of this section describes what would happen if it is switched on later — it is here so the change is never a surprise.</p>
-  <p>The AI coach is the only feature that sends training data off your device, and it only does so when you send it a message. If you never open it, nothing is sent.</p>
+  <p>Cloud backup for signed-in accounts also sends the profile and training log described above to Supabase. The AI coach is disabled in this version. If we offer it in a future version, it will send data to Anthropic only after a separate, explicit consent step.</p>
   <p>What is sent: your rank letters, your progress percentage towards the next rank, your open quest targets in kilograms, your weekly set and session counts, your streak length, plateau warnings, and the question you typed.</p>
   <p>What is not sent: your name, your email address, your bodyweight, your age, your sex, and your raw set log. Ranks are already normalised to bodyweight, so the coach can do its job without the number itself.</p>
   <p>Your question and the context above are sent to Anthropic, which operates the language model, and are processed on servers outside Turkey and the EU. Anthropic does not use API data to train its models. We do not store your conversations on our servers; only a counter of how many messages you have sent is kept, so the usage limit can be applied.</p>
@@ -80,20 +80,20 @@ a { color: #4FC3F7; }
   <p>Location, contacts, photos, microphone or camera.</p>
   <p>Advertising identifiers or cross-app tracking.</p>
   <p>Google Fit / Health Connect data — the app does not request access on Android.</p>
-  <p>Payment card details. If subscriptions launch, payment is handled by Apple or Google; we never see card data.</p>
+  <p>Payment card details. App Store subscriptions are processed by Apple and Google Play subscriptions by Google; we never receive payment card details.</p>
 </section>
 <section>
   <h2>Apple Health (iOS, optional)</h2>
   <p>Your rank is your estimated one-rep max divided by your bodyweight, so bodyweight is part of the calculation. On iOS you can let the app read your latest bodyweight from Apple Health instead of typing it in.</p>
   <p>It is READ-ONLY and opt-in. Nothing is ever written to Apple Health, and the app asks for exactly one data type: body mass. No steps, no heart rate, no workouts.</p>
-  <p>The reading stays on your device and follows the same path as a value you typed yourself. It is never used for advertising or tracking — Apple forbids that, and so do we.</p>
+  <p>When you choose a Health reading, the selected bodyweight is copied into your profile. While you are signed out it stays on this device; if you have an account, that profile value is included in the cloud backup described above. We do not use Apple Health data for advertising, tracking or analytics, and we never write data back to Apple Health.</p>
   <p>The app is deliberately cautious with it: a reading older than 30 days, outside a plausible range, or more than 20 kg away from your current weight is not applied silently. You are asked first, because bodyweight changes every one of your six ranks.</p>
-  <p>You can revoke access at any time in iOS Settings → Health → Data Access &amp; Devices. The app keeps working; it just goes back to the weight you type in.</p>
+  <p>Revoking access in iOS Settings → Health → Data Access &amp; Devices stops future reads. A bodyweight already copied into your profile remains there until you edit it; if you have an account, it remains in your cloud profile until changed or your account is deleted.</p>
 </section>
 <section>
   <h2>Your rights</h2>
   <p>Export: PROFILE → EXPORT RAW LOG produces a CSV of your complete raw log at any time, free.</p>
-  <p>Deletion: ACCOUNT → DELETE ACCOUNT permanently erases your account and cloud data. Local data is cleared at the same time.</p>
+  <p>Deletion: ACCOUNT → DELETE ACCOUNT permanently erases your account and cloud data. Local data is cleared at the same time. If you used Sign in with Apple, the app then explains how to remove THE SYSTEM from your Apple Account to revoke Apple access too.</p>
   <p>Access and correction: your data is visible and editable inside the app at all times.</p>
   <p>Under GDPR and Turkish KVKK you may also contact us directly to exercise these rights.</p>
 </section>
@@ -121,10 +121,10 @@ a { color: #4FC3F7; }
 
   <p class="lang">TÜRKÇE</p>
   <h1>Gizlilik Politikası</h1>
-  <p class="updated">Yürürlük 2026-08-08</p>
+  <p class="updated">Yürürlük 2026-10-03</p>
 <section>
   <h2>Kısa özet</h2>
-  <p>THE SYSTEM tamamen cihazında çalışır. Hesap açmadan ve internet olmadan set kaydedebilir, ranklanabilir ve tüm çekirdek özellikleri kullanabilirsin.</p>
+  <p>Hesap açmak isteğe bağlıdır. Giriş yapmadan ve internet olmadan antrenman kaydedebilir, tahmini 1RM'ini görebilir ve ranklarını kullanabilirsin. Hesap yalnızca cihazlar arası bulut yedeği istersen gerekir.</p>
   <p>Hesap açmak isteğe bağlıdır. Tek amacı, telefonunu kaybettiğinde ya da değiştirdiğinde kaydının yaşamaya devam etmesidir.</p>
   <p>Verini satmıyoruz, reklam göstermiyoruz ve reklamcılarla paylaşmıyoruz.</p>
 </section>
@@ -139,7 +139,7 @@ a { color: #4FC3F7; }
 <section>
   <h2>Bulutta sakladıklarımız (yalnızca hesap açarsan)</h2>
   <p>E-posta adresin; yalnızca giriş ve hesap kurtarma için kullanılır.</p>
-  <p>Yukarıda anlatılan profil ve antrenman kaydının aynısı — başka bir cihazda geri yüklenebilsin diye.</p>
+  <p>Yukarıda anlatılan profil ve antrenman kaydının aynısı, seçili vücut ağırlığın dâhil — başka bir cihazda geri yüklenebilsin diye. Apple Health'ten bir kiloyu profiline almayı seçersen yedeklenen değer bu profil değeridir.</p>
   <p>7 günlük denemenin başlangıç tarihi. Hesabına bağlı tutuluyor ki uygulamayı silip yeniden kurmak denemeyi baştan başlatmasın; hesabınla birlikte siliniyor.</p>
   <p>Barındırma Supabase üzerindedir. Row Level Security açıktır: veritabanı, başka bir kullanıcının satırlarını okuma girişimini reddeder.</p>
 </section>
@@ -155,7 +155,7 @@ a { color: #4FC3F7; }
   <p>Uygulamadaki koç tamamen bu cihazda çalışır: motorun zaten hesapladığı sayılardan ve protein için yayınlanmış spor bilimi aralıklarından konuşur. Hiçbir yere hiçbir şey gönderilmez.</p>
   <p>Haftalık hatırlatma, açarsan, cihazda kurulan yerel bir bildirimdir. Push servisi ve sunucu işin içinde değildir; PROFİL'den istediğin an kapatılır.</p>
   <p>İleriki bir sürümde AI destekli bir koç eklenebilir. Bu sürümde kapalıdır ve hiçbir yere hiçbir şey göndermez. Bölümün devamı, açılırsa ne olacağını anlatıyor — değişiklik hiç sürpriz olmasın diye şimdiden yazılı.</p>
-  <p>AI koç, antrenman verini cihazından dışarı gönderen tek özelliktir ve bunu yalnızca sen bir mesaj gönderdiğinde yapar. Hiç açmazsan hiçbir şey gönderilmez.</p>
+  <p>Giriş yapmış kullanıcılarda bulut yedeği de yukarıda açıklanan profil ve antrenman kaydını Supabase'e gönderir. AI koç bu sürümde kapalıdır. İleride sunulursa veriyi Anthropic'e ancak ayrı ve açık onayın ardından gönderir.</p>
   <p>Gönderilenler: rank harflerin, sonraki ranka kalan yüzden, açık görevlerinin kilogram cinsinden hedefleri, haftalık set ve seans sayın, seri uzunluğun, plato uyarıların ve yazdığın soru.</p>
   <p>Gönderilmeyenler: adın, e-posta adresin, vücut ağırlığın, yaşın, cinsiyetin ve ham set kaydın. Rank zaten vücut ağırlığına göre normalize edilmiştir; koç işini o sayı olmadan yapabilir.</p>
   <p>Sorun ve yukarıdaki bağlam, dil modelini işleten Anthropic'e gönderilir ve Türkiye ile AB dışındaki sunucularda işlenir. Anthropic, API verisini model eğitiminde kullanmaz. Konuşmalarını kendi sunucularımızda saklamıyoruz; yalnızca kaç mesaj gönderdiğinin sayacı tutulur, o da kullanım sınırını uygulamak için.</p>
@@ -167,20 +167,20 @@ a { color: #4FC3F7; }
   <p>Konum, rehber, fotoğraflar, mikrofon veya kamera.</p>
   <p>Reklam kimliği veya uygulamalar arası takip.</p>
   <p>Google Fit / Health Connect verisi — Android'de uygulama erişim istemiyor.</p>
-  <p>Kart bilgisi. Abonelik başladığında ödeme Apple veya Google tarafından işlenir; kart verisini biz hiç görmeyiz.</p>
+  <p>Kart bilgisi. App Store abonelik ödemelerini Apple, Google Play abonelik ödemelerini Google işler; kart verisini biz hiç almayız.</p>
 </section>
 <section>
   <h2>Apple Health (iOS, isteğe bağlı)</h2>
   <p>Rankın, tahmini tek tekrar maksimumunun vücut ağırlığına bölümü — yani kilo hesabın parçası. iOS'ta kilonu elle yazmak yerine Apple Health'teki son değeri okutabilirsin.</p>
   <p>YALNIZCA OKUMA ve tamamen senin isteğine bağlı. Apple Health'e hiçbir şey yazılmaz ve uygulama tek bir veri türü ister: vücut ağırlığı. Adım yok, nabız yok, antrenman yok.</p>
-  <p>Okunan değer cihazında kalır ve elle yazdığın bir değerle aynı yolu izler. Reklam ya da takip için asla kullanılmaz — Apple bunu yasaklıyor, biz de.</p>
+  <p>Health'ten okumayı seçtiğinde seçilen kilo profilindeki vücut ağırlığına kopyalanır. Giriş yapmadıysan cihazda kalır; hesabın varsa yukarıda anlatılan bulut yedeğine profil değeri olarak girer. Apple Health verisini reklam, takip veya tanılama için kullanmıyoruz ve Health'e hiçbir şey yazmıyoruz.</p>
   <p>Uygulama bu veriyi bilerek temkinli kullanıyor: 30 günden eski, makul aralığın dışında ya da mevcut kilondan 20 kg'dan fazla sapan bir okuma sessizce uygulanmaz. Önce sana sorulur, çünkü vücut ağırlığı altı rankının hepsini birden değiştirir.</p>
-  <p>Erişimi dilediğin an iOS Ayarlar → Sağlık → Veri Erişimi ve Cihazlar'dan geri alabilirsin. Uygulama çalışmaya devam eder, yalnızca elle yazdığın kiloya döner.</p>
+  <p>iOS Ayarlar → Sağlık → Veri Erişimi ve Cihazlar'dan erişimi kaldırmak sonraki okumaları durdurur. Profiline önceden kopyalanmış kilo sen değiştirene kadar kalır; hesabın varsa profilindeki değer, değiştirilene veya hesabın silinene kadar bulutta da kalır.</p>
 </section>
 <section>
   <h2>Haklarının kullanımı</h2>
   <p>Dışa aktarma: PROFİL → HAM KAYDI DIŞA AKTAR ile tüm ham kaydını istediğin an CSV olarak alabilirsin, ücretsiz.</p>
-  <p>Silme: HESAP → HESABI SİL ile hesabın ve bulut verin kalıcı olarak silinir. Aynı anda cihazdaki veri de temizlenir.</p>
+  <p>Silme: HESAP → HESABI SİL ile hesabın ve bulut verin kalıcı olarak silinir. Aynı anda cihazdaki veri de temizlenir. Apple ile giriş kullandıysan uygulama, Apple erişimini de kaldırmak için THE SYSTEM'i Apple Hesabı'ndan nasıl sileceğini gösterir.</p>
   <p>Erişim ve düzeltme: verilerin uygulama içinde her zaman görünür ve düzenlenebilir.</p>
   <p>KVKK ve GDPR kapsamında bu hakları kullanmak için bizimle doğrudan da iletişime geçebilirsin.</p>
 </section>
