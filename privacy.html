@@ -33,17 +33,17 @@ a { color: #4FC3F7; }
 <main>
   <p class="kicker">SYSTEM DECREE · 002</p>
   <h1>Privacy Policy</h1>
-  <p class="updated">Effective 2026-10-03</p>
+  <p class="updated">Effective 2026-11-15</p>
 <section>
   <h2>The short version</h2>
-  <p>An account is optional. You can log workouts, estimate your 1RM and use the strength ranks offline without signing in. Create an account only if you want cloud backup across devices.</p>
+  <p>An account is optional. You can log workouts, estimate your 1RM and use the strength ranks offline without signing in. Create an account only if you want cloud backup across devices, or to join the public standings or use friends.</p>
   <p>If you create an account, you can use an email address and password, Apple, or Google sign-in.</p>
-  <p>You can delete your account and everything in it from inside the app, at any time.</p>
+  <p>You can delete your account and the training data stored with it from inside the app, at any time. Account deletion has exceptions: purchase records held by Apple or Google and by RevenueCat, the Apple Search Ads attribution record held by RevenueCat, and anonymous diagnostics (see Retention).</p>
   <p>We do not sell your data, do not run ads, and do not share your data with advertisers.</p>
 </section>
 <section>
   <h2>What we store on your device</h2>
-  <p>Your profile: name you choose, sex, age, bodyweight and unit preference. Sex, age and bodyweight are required because strength thresholds are calibrated to them — without these the ranking is meaningless.</p>
+  <p>Your profile: name you choose, sex, age, bodyweight, unit preference and, if you enter it for nutrition targets, your height. Sex, age and bodyweight are required because strength thresholds are calibrated to them — without these the ranking is meaningless. Your hunter name is shown only to your friends and to people you send a friend request to; your letter and score are shown only if you join the public standings (see What we store in the cloud).</p>
   <p>Your training log: exercise, weight, reps or duration, and the time of each set.</p>
   <p>Body measurements, if you enter them: the circumferences you take with a tape measure (neck, chest, waist, hips, thigh, arm, calf) and the date of each reading. These never leave your device — the cloud does not store them — and the CSV export includes all of them.</p>
   <p>Your settings: language, chosen movements, custom movements, and the template program you are following.</p>
@@ -51,17 +51,31 @@ a { color: #4FC3F7; }
 </section>
 <section>
   <h2>What we store in the cloud (only if you create an account)</h2>
-  <p>Your email address, used for sign-in and account recovery only.</p>
-  <p>The same profile and training log described above, including the selected bodyweight. If you choose to copy a bodyweight reading from Apple Health into your profile, that selected profile value is included in this account backup.</p>
-  <p>The date your 7-day trial started. It is tied to your account so the trial is not restarted by reinstalling the app; it is deleted with your account.</p>
-  <p>Hosting is provided by Supabase. Row Level Security is enabled: the database rejects any attempt to read another user's rows.</p>
+  <p>Your email address, used for sign-in and account recovery only. If you sign in with Apple or Google, the provider may also share your name, and Google may share a profile picture link; Supabase stores these with your sign-in record. The app does not display or use them.</p>
+  <p>The same profile and training log described above, including the selected bodyweight. Your age is stored as a birth year only (no day or month). If you choose to copy a bodyweight reading from Apple Health into your profile, that selected profile value is included in this account backup.</p>
+  <p>The date your 7-day trial started. It is tied to your account so the trial is not restarted by reinstalling the app; the account copy is deleted with your account. A copy of the date also stays on this device after you delete your account or reset the Awakening, so that resetting cannot restart the trial.</p>
+  <p>Public standings (off by default; only with an account). If you choose to join, other people using the app can see your overall rank letter, your power score and your place in the list, under a numbered label such as “Hunter #1234”. Your hunter name is not shown in the public list. Nothing else is shown: not your email address, bodyweight, age, sex or training log. Your friends may be able to recognise your entry in the public list by its score. To build the list, the server computes your rank letters from your synced sets and stores them with your entry, including letters per body region that are not shown. We also store when you joined or left, as a record of your choice. You can leave at any time in PROFILE → Public standings: your standings entry is deleted immediately. If you join again later, you get a new number. If you never join, you are never listed. Legal basis: your explicit consent (GDPR Art. 6(1)(a) and Art. 9(2)(a), because the letters are derived from health-related training data; explicit consent under KVKK), which you can withdraw at any time by leaving.</p>
+  <p>Friends (only if you use them; not available without an account). You can send a friend request with someone's friend code; you become friends only when they accept. The list of your friends and pending requests is stored with your account so the Friends tab can show their standings. Your friends and the people you send a friend request to see your hunter name. Your letter and score are shown, also in your friends' list, only if you have joined the public standings. When you send a friend request, the person you send it to sees your hunter name so they can decide; you do not see theirs until they accept. Your hunter name is whatever you typed; it does not have to be your real name, and you can change it in your profile. A request that is declined or withdrawn, and a friend you remove, is deleted for both of you at once, and your name is no longer shown to them. If you decline someone's request or remove them as a friend, they cannot send you a new request, even with a new code, unless you send them a request yourself. Separately, you can renew your friend code so the old one stops working; your referral code does not change. Legal basis: performance of our agreement with you, to provide the friends feature you choose to use (GDPR Art. 6(1)(b)).</p>
+  <p>Fair-play checks (only if you join the public standings). While you take part in the public standings, the server checks your synced sets against two limits and stores a short record when a set crosses one. (1) If the weight is far beyond the strongest results on record for your bodyweight (a fixed ratio per body region, based on powerlifting records plus a 30% margin), the set is left out of the letter and score shown in the standings (public list and friends list), and your account is marked as having such a set until a later check finds none. The rank the app shows you on your device is not changed. (2) On bodyweight movements such as pull-ups and dips, if the added load is equal to or more than your bodyweight, the set is left out of your standings score only (public list and friends list). The record holds the movement, the values that were compared, the limit and the time. It is not shown to other people and is used only to keep the standings fair. These checks are automatic; if you think a set was left out by mistake, contact us. Leaving the public standings stops new checks but does not delete existing records; a record is deleted when you delete that set or your account. Legal basis: our legitimate interest in keeping the standings fair (GDPR Art. 6(1)(f)). These checks run only when you have joined the public standings; you can object to them, or stop them by leaving.</p>
+  <p>Hosting is provided by Supabase. Row Level Security is enabled: the database rejects any attempt to read another user's rows. The only exceptions are the public standings and friends described above: the standings return only the numbered label, rank letter, power score and place of people who chose to join, and your hunter name is shown only to your friends and to people you send a friend request to.</p>
+  <p>Service providers and international transfers. We use these processors: Supabase (hosting and database; region: Northeast Asia (Seoul), South Korea), RevenueCat (subscriptions; United States), PostHog (anonymous diagnostics; EU servers) and Sentry (crash reports; EU servers); Expo and, if it is ever switched on, Anthropic are described in their own sections. Where personal data is transferred outside the EU/EEA, the transfer to South Korea relies on the European Commission's adequacy decision for the Republic of Korea (December 2021), and transfers to the United States rely on the European Commission's Standard Contractual Clauses (and, where the provider is certified under it, also on the EU-U.S. Data Privacy Framework). Transfers from Turkey rely on the safeguards required by Article 9 of the KVKK; for Supabase, on standard contractual terms in its data processing agreement.</p>
 </section>
 <section>
   <h2>Diagnostics</h2>
-  <p>The app records a small set of anonymous counters: a set was logged, a rank went up, a card was shared, an export was taken, plus the technical details of a crash.</p>
-  <p>While diagnostics are on, these counters leave your device. Anonymous crash and event counts are processed through PostHog, and crash reports are processed through Sentry so a crash can be traced to the file and line it came from; both store their data in the European Union (PostHog: eu.i.posthog.com, Sentry: ingest.de.sentry.io). Your IP address is retained by neither service, so not even a coarse location is derived from it. Records are tied to a random install identifier that belongs to the installation and not to your account, and it is gone when you uninstall the app. With diagnostics off, nothing is sent.</p>
+  <p>The app records a small set of anonymous counters: a set was logged, a rank went up, a card was shared, an export was taken, plus the technical details of a crash. Each counter also carries the device's operating system (iOS or Android); your country and language are not sent.</p>
+  <p>While diagnostics are on, these counters leave your device. Anonymous crash and event counts are processed through PostHog, and crash reports are processed through Sentry so a crash can be traced to the file and line it came from; both store their data in the European Union (PostHog: eu.i.posthog.com, Sentry: ingest.de.sentry.io). The app does not include your IP address in what it sends. Neither service stores your IP address or keeps a location derived from it. Location data derived before 14 November 2026 is deleted when those records reach the end of their retention period. Records are tied to a random install identifier that belongs to the installation and not to your account, and it is gone when you uninstall the app. With diagnostics off, no diagnostic counters or crash reports are sent. The switch does not cover subscriptions (see Subscriptions and ad attribution) or update checks (see App updates).</p>
   <p>They contain no name, no email address, no bodyweight and no free text. Only fixed values such as rank letters and body regions, plus counts and yes/no flags, are allowed through. This is enforced by the code, not by policy, and an automated test keeps it that way.</p>
-  <p>You can switch diagnostics off at any time: PROFILE then DIAGNOSTICS. From the moment you switch it off, nothing further is sent.</p>
+  <p>You can switch diagnostics off at any time: PROFILE then DIAGNOSTICS. From the moment you switch it off, no further diagnostic counters or crash reports are sent.</p>
+</section>
+<section>
+  <h2>Subscriptions and ad attribution</h2>
+  <p>Subscriptions are managed through RevenueCat, our subscription processor. RevenueCat receives your purchase and subscription history from Apple or Google and an app user ID: a random ID, or your account ID if you are signed in. RevenueCat is based in the United States, so this data is processed on servers outside Turkey and the EU.</p>
+  <p>Ad attribution (iOS, only while Diagnostics is on): the app sends RevenueCat a one-time Apple attribution token. RevenueCat exchanges it with Apple for a record of the Apple Search Ads ad that led to the install, if there was one: campaign, ad group, country or region, click date, conversion type and, when available, keyword. We use it only to see which ads lead to subscriptions. No advertising identifier (IDFA) is read and you are not tracked across apps. With Diagnostics off, no token is sent.</p>
+</section>
+<section>
+  <h2>App updates</h2>
+  <p>App updates are delivered through Expo (650 Industries, Inc., United States), the platform the app is built on, so this data may be processed outside Turkey and the EU. An update check sends Expo the platform (iOS or Android), the app's runtime version, the update channel, the identifiers of the installed and currently running app code, and a random installation identifier that Expo's update library creates on your device. If the app crashed while starting, the next check also includes that error message. As with any internet request, Expo's servers see your IP address; Expo handles it under its own privacy policy.</p>
+  <p>Update checks do not depend on the Diagnostics switch. From version 1.0.5 the app checks every time it starts: an available update downloads in the background and is applied the next time you open the app. Version 1.0.4 and earlier check when you tap CHECK FOR UPDATE in PROFILE, or after the app crashed while starting.</p>
 </section>
 <section>
   <h2>The coach</h2>
@@ -93,15 +107,18 @@ a { color: #4FC3F7; }
 <section>
   <h2>Your rights</h2>
   <p>Export: PROFILE → EXPORT RAW LOG produces a CSV of your complete raw log at any time, free.</p>
-  <p>Deletion: ACCOUNT → DELETE ACCOUNT permanently erases your account and cloud data. Local data is cleared at the same time. If you used Sign in with Apple, the app then explains how to remove THE SYSTEM from your Apple Account to revoke Apple access too.</p>
+  <p>Deletion: ACCOUNT → DELETE ACCOUNT permanently erases your account and cloud data, including your standings entry, friend code, friend links, pending friend requests, blocks, friend request history and fair-play records. The app also clears the data on this device: your training log, profile, name, measurements, nutrition settings, custom movements, programs, and the files it created for exports, shared cards and imports. Your settings (language, sound, appearance, diagnostics, reminders and which help screens you have seen), the counters that limit how often the app asks for a rating or shows an offer, and the trial start date stay on the device. Some records are not erased by account deletion; the exceptions are listed under Retention. If you used Sign in with Apple, the app then explains how to remove THE SYSTEM from your Apple Account to revoke Apple access too.</p>
   <p>Access and correction: your data is visible and editable inside the app at all times.</p>
   <p>Under GDPR and Turkish KVKK you may also contact us directly to exercise these rights.</p>
+  <p>You can also ask us to restrict the processing of your data, object to processing based on our legitimate interest (such as the fair-play checks), and receive the data you gave us in a portable format (the CSV export above or, on request, your cloud data). Where processing is based on your consent, you can withdraw it at any time; this does not affect processing before the withdrawal.</p>
+  <p>You also have the right to lodge a complaint with a data protection supervisory authority: in the EU, the authority of the country where you live or work; in Turkey, the Personal Data Protection Authority (KVKK); in Brazil, the ANPD.</p>
 </section>
 <section>
   <h2>Retention</h2>
   <p>Cloud data is kept until you delete your account, after which it is removed immediately by cascade deletion.</p>
-  <p>Local data is kept until you delete it, reset the Awakening, or uninstall the app.</p>
-  <p>Diagnostic counters are held by PostHog, and crash reports by Sentry, in the European Union for the retention period that applies to each project, and are deleted automatically at the end of it. They are the one exception to account deletion, and the reason is structural: they are tied to a random install identifier with no link back to you, so there is nothing for a cascade delete to find. They hold no name, email address, bodyweight or free text. Switching diagnostics off in PROFILE stops all further sending from that moment.</p>
+  <p>Public standings and friends: leaving the public standings deletes your standings entry immediately; fair-play records stay until you delete that set or your account. Friend links and pending requests are deleted as soon as a request is declined or withdrawn or a friend is removed; a block set by declining or removing stays until you send that person a request yourself. Your friend code is kept until you renew it. Each friend request you try to send, including ones with a wrong code, is logged with its time (not with who it was for) so the daily limit can be applied; entries older than a day are cleared the next time you send a request, and if you do not send another, they stay until you delete your account. All of these are deleted with your account.</p>
+  <p>Local data is kept until you delete your account, reset the Awakening, or uninstall the app. Resetting the Awakening clears your training log and profile; without an account it also clears measurements, nutrition settings, custom movements and programs, and with an account those stay on this device.</p>
+  <p>Account deletion has these exceptions. (1) Purchase records: Apple or Google keep your purchase history under their own policies, and RevenueCat keeps your purchase history until we delete it. (2) Ad attribution: if an Apple Search Ads record was created (see Subscriptions and ad attribution), it stays with RevenueCat until we delete it. You can ask us to delete your RevenueCat records. (3) Diagnostics: diagnostic counters are held by PostHog, and crash reports by Sentry, in the European Union for the retention period that applies to each project, and are deleted automatically at the end of it. The reason is structural: they are tied to a random install identifier with no link back to you, so there is nothing for a cascade delete to find. They hold no name, email address, bodyweight or free text. Switching diagnostics off in PROFILE stops diagnostic counters and crash reports from that moment.</p>
 </section>
 <section>
   <h2>Children</h2>
@@ -113,24 +130,28 @@ a { color: #4FC3F7; }
 </section>
 <section>
   <h2>Changes and contact</h2>
-  <p>If this policy changes materially, the app will show the change before it takes effect.</p>
+  <p>If this policy changes materially, we will show the change in the app before it applies to you.</p>
   <p>Questions or data requests: abdullahakdag68@gmail.com</p>
+  <p>Data controller: Ahmet Selim Tekiz, an individual developer based in Turkey. Contact: abdullahakdag68@gmail.com.</p>
+  <p>Data protection contact for Brazil (LGPD “encarregado”): requests from data subjects and from the ANPD can be sent through the same channel, abdullahakdag68@gmail.com.</p>
 </section>
 
   <hr>
 
+  <div lang="tr">
   <p class="lang">TÜRKÇE</p>
   <h1>Gizlilik Politikası</h1>
-  <p class="updated">Yürürlük 2026-10-03</p>
+  <p class="updated">Yürürlük 2026-11-15</p>
 <section>
   <h2>Kısa özet</h2>
-  <p>Hesap açmak isteğe bağlıdır. Giriş yapmadan ve internet olmadan antrenman kaydedebilir, tahmini 1RM'ini görebilir ve ranklarını kullanabilirsin. Hesap yalnızca cihazlar arası bulut yedeği istersen gerekir.</p>
-  <p>Hesap açmak isteğe bağlıdır. Tek amacı, telefonunu kaybettiğinde ya da değiştirdiğinde kaydının yaşamaya devam etmesidir.</p>
+  <p>Hesap açmak isteğe bağlıdır. Giriş yapmadan ve internet olmadan antrenman kaydedebilir, tahmini 1RM'ini görebilir ve ranklarını kullanabilirsin. Hesap yalnızca cihazlar arası bulut yedeği istersen ya da herkese açık sıralamaya katılmak veya arkadaş özelliğini kullanmak istersen gerekir.</p>
+  <p>Hesap açarsan e-posta ve şifre, Apple ya da Google ile giriş yapabilirsin.</p>
+  <p>Hesabını ve onunla saklanan antrenman verini istediğin an uygulamanın içinden silebilirsin. Hesap silmenin istisnaları var: Apple ya da Google'ın ve RevenueCat'in tuttuğu satın alma kayıtları, RevenueCat'teki Apple Search Ads atribüsyon kaydı ve anonim tanılama (bkz. Saklama süresi).</p>
   <p>Verini satmıyoruz, reklam göstermiyoruz ve reklamcılarla paylaşmıyoruz.</p>
 </section>
 <section>
   <h2>Cihazında sakladıklarımız</h2>
-  <p>Profilin: seçtiğin ad, cinsiyet, yaş, vücut ağırlığı ve birim tercihi. Cinsiyet, yaş ve kilo zorunludur çünkü güç eşikleri bunlara göre kalibre edilir — bunlar olmadan ranklama anlamsız olur.</p>
+  <p>Profilin: seçtiğin ad, cinsiyet, yaş, vücut ağırlığı, birim tercihi ve beslenme hedefi için girdiysen boyun. Cinsiyet, yaş ve kilo zorunludur çünkü güç eşikleri bunlara göre kalibre edilir — bunlar olmadan ranklama anlamsız olur. Avcı adın yalnız arkadaşlarına ve arkadaşlık isteği gönderdiğin kişilere gösterilir; harfin ve skorun yalnız herkese açık sıralamaya katılırsan görünür (bkz. Bulutta sakladıklarımız).</p>
   <p>Antrenman kaydın: hareket, ağırlık, tekrar veya süre ve her setin zamanı.</p>
   <p>Girdiysen vücut ölçüleri: mezurayla aldığın çevreler (boyun, göğüs, bel, kalça, uyluk, kol, baldır) ve her ölçümün tarihi. Bunlar cihazından hiç çıkmıyor — bulut bunları saklamıyor — ve CSV dışa aktarma hepsini içeriyor.</p>
   <p>Ayarların: dil, seçtiğin hareketler, kendi eklediğin hareketler ve takip ettiğin şablon program.</p>
@@ -138,17 +159,31 @@ a { color: #4FC3F7; }
 </section>
 <section>
   <h2>Bulutta sakladıklarımız (yalnızca hesap açarsan)</h2>
-  <p>E-posta adresin; yalnızca giriş ve hesap kurtarma için kullanılır.</p>
-  <p>Yukarıda anlatılan profil ve antrenman kaydının aynısı, seçili vücut ağırlığın dâhil — başka bir cihazda geri yüklenebilsin diye. Apple Health'ten bir kiloyu profiline almayı seçersen yedeklenen değer bu profil değeridir.</p>
-  <p>7 günlük denemenin başlangıç tarihi. Hesabına bağlı tutuluyor ki uygulamayı silip yeniden kurmak denemeyi baştan başlatmasın; hesabınla birlikte siliniyor.</p>
-  <p>Barındırma Supabase üzerindedir. Row Level Security açıktır: veritabanı, başka bir kullanıcının satırlarını okuma girişimini reddeder.</p>
+  <p>E-posta adresin; yalnızca giriş ve hesap kurtarma için kullanılır. Apple ya da Google ile girersen sağlayıcı adını da paylaşabilir, Google ayrıca bir profil resmi bağlantısı paylaşabilir; Supabase bunları giriş kaydınla birlikte saklar. Uygulama bunları göstermez ve kullanmaz.</p>
+  <p>Yukarıda anlatılan profil ve antrenman kaydının aynısı, seçili vücut ağırlığın dâhil — başka bir cihazda geri yüklenebilsin diye. Yaşın yalnızca doğum yılı olarak saklanır (gün ve ay yok). Apple Health'ten bir kiloyu profiline almayı seçersen yedeklenen değer bu profil değeridir.</p>
+  <p>7 günlük denemenin başlangıç tarihi. Hesabına bağlı tutuluyor ki uygulamayı silip yeniden kurmak denemeyi baştan başlatmasın; hesaptaki kopyası hesabınla birlikte silinir. Tarihin bir kopyası hesabını sildikten ya da Awakening'i sıfırladıktan sonra da bu cihazda kalır; sıfırlamak denemeyi baştan başlatamasın diye.</p>
+  <p>Herkese açık sıralama (varsayılan kapalı; yalnız hesapla). Katılmayı seçersen uygulamayı kullanan diğer kişiler genel rank harfini, güç skorunu ve listedeki sıranı “Avcı #1234” gibi numaralı bir etiketle görür. Avcı adın genel listede gösterilmez. Başka hiçbir şey gösterilmez: e-posta adresin, vücut ağırlığın, yaşın, cinsiyetin ya da antrenman kaydın görünmez. Arkadaşların genel listedeki kaydını skorundan tanıyabilir. Listeyi oluşturmak için sunucu rank harflerini senkronlanan setlerinden hesaplar ve kaydınla birlikte saklar; gösterilmeyen bölge harfleri de buna dahildir. Ayrıca seçiminin kaydı olarak ne zaman katıldığını ya da çıktığını saklarız. İstediğin an PROFİL → Herkes görsün'den çıkabilirsin: sıralama kaydın hemen silinir. Sonra yeniden katılırsan yeni bir numara alırsın. Hiç katılmazsan hiç listelenmezsin. Hukuki dayanak: açık rızan (GDPR md. 6(1)(a) ve md. 9(2)(a), çünkü harfler sağlıkla ilgili antrenman verisinden türer; KVKK kapsamında açık rıza); sıralamadan çıkarak istediğin an geri alabilirsin.</p>
+  <p>Arkadaşlar (yalnız kullanırsan; hesapsız kullanımda yok). Birinin arkadaş koduyla arkadaşlık isteği gönderebilirsin; arkadaş olmanız için karşı tarafın kabul etmesi gerekir. Arkadaş listen ve bekleyen istekler, Arkadaşlar sekmesi sıralamalarını gösterebilsin diye hesabınla saklanır. Avcı adın arkadaşlarına ve arkadaşlık isteği gönderdiğin kişilere görünür. Harfin ve skorun ise, arkadaş listesinde de, yalnız herkese açık sıralamaya katıldıysan görünür. Arkadaşlık isteği gönderdiğinde, karar verebilsin diye isteği gönderdiğin kişi avcı adını görür; sen onunkini o kabul edene kadar görmezsin. Avcı adın ne yazdıysan odur; gerçek adın olmak zorunda değil ve profilinden değiştirebilirsin. Reddedilen ya da geri çekilen istek ve çıkardığın arkadaşlık ikiniz için de hemen silinir; adın artık karşı tarafa görünmez. Birinin isteğini reddedersen ya da onu arkadaşlıktan çıkarırsan, sen ona kendin istek göndermedikçe, yeni bir kodla bile sana istek gönderemez. Ayrıca arkadaş kodunu yenileyerek eskisini geçersiz kılabilirsin; davet ödülü kodun değişmez. Hukuki dayanak: kullanmayı seçtiğin arkadaş özelliğini sağlamak için seninle aramızdaki sözleşmenin ifası (GDPR md. 6(1)(b)).</p>
+  <p>Adil oyun denetimi (yalnız herkese açık sıralamaya katılırsan). Sıralamada olduğun sürece sunucu senkronlanan setlerini iki sınıra göre kontrol eder ve bir set sınırı geçerse kısa bir kayıt tutar. (1) Ağırlık, vücut ağırlığın için kayıtlı en güçlü sonuçların çok üstündeyse (bölge başına sabit bir oran; powerlifting rekorları artı %30 pay), set sıralamada görünen harfe ve skora sayılmaz (genel liste ve arkadaş listesi); sonraki bir kontrol böyle bir set bulmayana kadar hesabın da böyle bir seti olduğu şeklinde işaretlenir. Uygulamanın cihazında sana gösterdiği rank değişmez. (2) Barfiks ve dips gibi vücut ağırlığıyla yapılan hareketlerde eklenen yük vücut ağırlığına eşit ya da fazlaysa, set yalnız sıralama skoruna sayılmaz (genel liste ve arkadaş listesi). Kayıtta hareket, karşılaştırılan değerler, sınır ve zaman bulunur. Başka kimseye gösterilmez ve yalnız sıralamayı adil tutmak için kullanılır. Bu kontroller otomatiktir; bir setin yanlışlıkla sayılmadığını düşünüyorsan bize yaz. Sıralamadan çıkmak yeni kontrolleri durdurur ama mevcut kayıtları silmez; kayıt, o seti ya da hesabını sildiğinde silinir. Hukuki dayanak: sıralamayı adil tutmaktaki meşru menfaatimiz (GDPR md. 6(1)(f)). Bu kontroller yalnız herkese açık sıralamaya katıldığında çalışır; itiraz edebilir ya da sıralamadan çıkarak durdurabilirsin.</p>
+  <p>Barındırma Supabase üzerindedir. Row Level Security açıktır: veritabanı, başka bir kullanıcının satırlarını okuma girişimini reddeder. İstisnalar yukarıda anlatılan herkese açık sıralama ve arkadaşlardır: sıralama yalnız katılmayı seçen kişilerin numaralı etiketini, rank harfini, güç skorunu ve sırasını döndürür; avcı adın yalnız arkadaşlarına ve arkadaşlık isteği gönderdiğin kişilere gösterilir.</p>
+  <p>Hizmet sağlayıcılar ve yurt dışına aktarım. Şu veri işleyenleri kullanırız: Supabase (barındırma ve veritabanı; bölge: Kuzeydoğu Asya (Seul), Güney Kore), RevenueCat (abonelikler; ABD), PostHog (anonim tanılama; AB sunucuları) ve Sentry (çökme raporları; AB sunucuları); Expo ve, bir gün açılırsa, Anthropic kendi bölümlerinde anlatılır. Kişisel veri AB/AEA dışına aktarıldığında Güney Kore'ye aktarım Avrupa Komisyonu'nun Kore Cumhuriyeti için verdiği yeterlilik kararına (Aralık 2021), ABD'ye aktarımlar ise Avrupa Komisyonu'nun Standart Sözleşme Maddelerine (sağlayıcı bu çerçevede sertifikalıysa ayrıca AB-ABD Veri Gizliliği Çerçevesi'ne) dayanır. Türkiye'den yapılan aktarımlar KVKK'nın 9. maddesinin aradığı güvencelere; Supabase için veri işleme sözleşmesindeki standart sözleşme hükümlerine dayanır.</p>
 </section>
 <section>
   <h2>Tanılama</h2>
-  <p>Uygulama az sayıda anonim sayaç tutar: bir set kaydedildi, bir rank atlandı, bir kart paylaşıldı, bir dışa aktarma alındı ve bir çökmenin teknik ayrıntısı.</p>
-  <p>Tanılama açıkken bu sayaçlar cihazından çıkar. Anonim çökme ve olay sayıları PostHog üzerinden, çökme raporları ise çökmenin hangi dosya ve satırdan geldiği görülebilsin diye Sentry üzerinden işlenir; iki serviste de veri Avrupa Birliği'nde tutulur (PostHog: eu.i.posthog.com, Sentry: ingest.de.sentry.io). IP adresin iki serviste de saklanmaz, dolayısıyla kaba bir konum bile türetilmez. Kayıtlar rastgele bir kurulum kimliğine bağlanır; o kimlik hesabına değil kuruluma aittir ve uygulamayı sildiğinde yok olur. Tanılama kapalıyken hiçbir şey gönderilmez.</p>
+  <p>Uygulama az sayıda anonim sayaç tutar: bir set kaydedildi, bir rank atlandı, bir kart paylaşıldı, bir dışa aktarma alındı ve bir çökmenin teknik ayrıntısı. Her sayaç cihazın işletim sistemini de (iOS ya da Android) taşır; ülken ve dilin gönderilmez.</p>
+  <p>Tanılama açıkken bu sayaçlar cihazından çıkar. Anonim çökme ve olay sayıları PostHog üzerinden, çökme raporları ise çökmenin hangi dosya ve satırdan geldiği görülebilsin diye Sentry üzerinden işlenir; iki serviste de veri Avrupa Birliği'nde tutulur (PostHog: eu.i.posthog.com, Sentry: ingest.de.sentry.io). Uygulama gönderdiklerine IP adresini koymaz. İki servis de IP adresini saklamaz ve ondan türetilen bir konumu tutmaz. 14 Kasım 2026'dan önce türetilmiş konum bilgisi, o kayıtların saklama süresi dolunca silinir. Kayıtlar rastgele bir kurulum kimliğine bağlanır; o kimlik hesabına değil kuruluma aittir ve uygulamayı sildiğinde yok olur. Tanılama kapalıyken tanılama sayacı ya da çökme raporu gönderilmez. Bu anahtar abonelikleri (bkz. Abonelikler ve reklam ölçümü) ve güncelleme kontrolünü (bkz. Uygulama güncellemeleri) kapsamaz.</p>
   <p>İçlerinde ad, e-posta, vücut ağırlığı ve serbest metin yoktur. Yalnızca rank harfi ve vücut bölgesi gibi sabit değerler ile sayılar ve evet/hayır bayrakları geçebilir. Bunu politika değil kodun kendisi uygular; otomatik bir test de kuralı kalıcı kılar.</p>
-  <p>Tanılamayı istediğin an kapatabilirsin: PROFİL sonra TANILAMA. Kapattığın andan sonra hiçbir kayıt gönderilmez.</p>
+  <p>Tanılamayı istediğin an kapatabilirsin: PROFİL sonra TANILAMA. Kapattığın andan sonra tanılama sayacı ya da çökme raporu gönderilmez.</p>
+</section>
+<section>
+  <h2>Abonelikler ve reklam ölçümü</h2>
+  <p>Abonelikler, abonelik işleyicimiz RevenueCat üzerinden yönetilir. RevenueCat, Apple ya da Google'dan satın alma ve abonelik geçmişini ve bir uygulama kullanıcı kimliğini alır: rastgele bir kimlik ya da giriş yaptıysan hesap kimliğin. RevenueCat ABD merkezlidir; bu veri Türkiye ve AB dışındaki sunucularda işlenir.</p>
+  <p>Reklam ölçümü (iOS, yalnız Tanılama açıkken): uygulama RevenueCat'e tek seferlik bir Apple atribüsyon belirteci gönderir. RevenueCat bunu Apple'da, kurulumu getiren bir Apple Search Ads reklamı varsa onun kaydıyla değiştirir: kampanya, reklam grubu, ülke ya da bölge, tıklama tarihi, dönüşüm türü ve varsa anahtar kelime. Bunu yalnızca hangi reklamın abonelik getirdiğini görmek için kullanırız. Reklam kimliği (IDFA) okunmaz ve uygulamalar arasında izlenmezsin. Tanılama kapalıyken belirteç gönderilmez.</p>
+</section>
+<section>
+  <h2>Uygulama güncellemeleri</h2>
+  <p>Uygulama güncellemeleri, uygulamanın üzerine kurulduğu platform olan Expo (650 Industries, Inc., ABD) üzerinden dağıtılır; bu veri Türkiye ve AB dışında işlenebilir. Güncelleme kontrolü Expo'ya platformu (iOS ya da Android), uygulamanın çalışma zamanı sürümünü, güncelleme kanalını, kurulu ve o an çalışan uygulama kodunun kimliklerini ve Expo'nun güncelleme kütüphanesinin cihazında oluşturduğu rastgele bir kurulum kimliğini gönderir. Uygulama açılırken çöktüyse sonraki kontrol o hata mesajını da içerir. Her internet isteğinde olduğu gibi Expo'nun sunucuları IP adresini görür; Expo bunu kendi gizlilik politikasına göre işler.</p>
+  <p>Güncelleme kontrolü Tanılama anahtarına bağlı değildir. 1.0.5 sürümünden itibaren uygulama her açılışta kontrol eder: varsa güncelleme arka planda iner ve uygulamayı bir sonraki açışında uygulanır. 1.0.4 ve önceki sürümler PROFİL'deki GÜNCELLEMEYİ KONTROL ET düğmesine basıldığında ya da açılırken çöktükten sonra kontrol eder.</p>
 </section>
 <section>
   <h2>Koç</h2>
@@ -180,15 +215,18 @@ a { color: #4FC3F7; }
 <section>
   <h2>Haklarının kullanımı</h2>
   <p>Dışa aktarma: PROFİL → HAM KAYDI DIŞA AKTAR ile tüm ham kaydını istediğin an CSV olarak alabilirsin, ücretsiz.</p>
-  <p>Silme: HESAP → HESABI SİL ile hesabın ve bulut verin kalıcı olarak silinir. Aynı anda cihazdaki veri de temizlenir. Apple ile giriş kullandıysan uygulama, Apple erişimini de kaldırmak için THE SYSTEM'i Apple Hesabı'ndan nasıl sileceğini gösterir.</p>
+  <p>Silme: HESAP → HESABI SİL ile hesabın ve bulut verin, sıralama kaydın, arkadaş kodun, arkadaş bağlantıların, bekleyen isteklerin, engellerin, istek denemesi kayıtların ve adil oyun kayıtların dahil, kalıcı olarak silinir. Uygulama bu cihazdaki veriyi de temizler: antrenman kaydın, profilin, adın, ölçülerin, beslenme ayarların, özel hareketlerin, programların ve dışa aktarma, paylaşılan kart ve içe aktarma için oluşturduğu dosyalar. Ayarların (dil, ses, görünüm, tanılama, hatırlatma ve gördüğün yardım pencereleri), uygulamanın puan isteme ve teklif gösterme sıklığını sınırlayan sayaçlar ve deneme başlangıç tarihi cihazda kalır. Bazı kayıtlar hesap silmeyle silinmez; istisnalar Saklama süresi bölümünde listelenir. Apple ile giriş kullandıysan uygulama, Apple erişimini de kaldırmak için THE SYSTEM'i Apple Hesabı'ndan nasıl sileceğini gösterir.</p>
   <p>Erişim ve düzeltme: verilerin uygulama içinde her zaman görünür ve düzenlenebilir.</p>
   <p>KVKK ve GDPR kapsamında bu hakları kullanmak için bizimle doğrudan da iletişime geçebilirsin.</p>
+  <p>Ayrıca verilerinin işlenmesinin kısıtlanmasını isteyebilir, meşru menfaatimize dayanan işlemeye (örneğin adil oyun denetimine) itiraz edebilir ve bize verdiğin verileri taşınabilir bir biçimde alabilirsin (yukarıdaki CSV dışa aktarımı ya da, talep edersen, bulut verin). Rızaya dayanan işlemede rızanı istediğin an geri alabilirsin; bu, geri almadan önceki işlemeyi etkilemez.</p>
+  <p>Ayrıca bir veri koruma denetim makamına şikâyette bulunma hakkın var: AB'de yaşadığın ya da çalıştığın ülkenin makamına, Türkiye'de Kişisel Verileri Koruma Kurumu'na (KVKK), Brezilya'da ANPD'ye.</p>
 </section>
 <section>
   <h2>Saklama süresi</h2>
   <p>Bulut verisi, sen hesabını silene kadar saklanır; silindiğinde zincirleme silme ile anında kaldırılır.</p>
-  <p>Cihazdaki veri; sen silene, Awakening'i sıfırlayana ya da uygulamayı kaldırana kadar durur.</p>
-  <p>Tanılama sayaçları PostHog'da, çökme raporları Sentry'de — ikisi de Avrupa Birliği'nde, her projede geçerli saklama süresi kadar tutulur ve süre sonunda otomatik silinir. Hesap silmenin tek istisnası bunlar ve sebebi yapısal: kayıtlar rastgele bir kurulum kimliğine bağlı ve o kimlikten sana giden bir bağ yok, yani zincirleme silmenin bulacağı bir şey yok. İçlerinde ad, e-posta, vücut ağırlığı ya da serbest metin yoktur. PROFİL'den tanılamayı kapattığın anda gönderim tamamen durur.</p>
+  <p>Herkese açık sıralama ve arkadaşlar: sıralamadan çıktığında sıralama kaydın hemen silinir; adil oyun kayıtları o seti ya da hesabını silene kadar kalır. Arkadaş bağlantıları ve bekleyen istekler, istek reddedildiği ya da geri çekildiği veya arkadaş çıkarıldığı anda silinir; reddederek ya da çıkararak oluşan engel, sen o kişiye kendin istek gönderene kadar kalır. Arkadaş kodun, sen yenileyene kadar saklanır. Göndermeye çalıştığın her arkadaşlık isteği, yanlış kodlu olanlar dahil, günlük sınır uygulanabilsin diye zamanıyla kaydedilir (kime gönderildiği kaydedilmez); bir günden eski kayıtlar bir sonraki isteğinde temizlenir, başka istek göndermezsen hesabını silene kadar kalır. Bunların hepsi hesabınla birlikte silinir.</p>
+  <p>Cihazdaki veri; hesabını silene, Awakening'i sıfırlayana ya da uygulamayı kaldırana kadar durur. Awakening'i sıfırlamak antrenman kaydını ve profilini temizler; hesabın yoksa ölçüler, beslenme ayarları, özel hareketler ve programlar da gider, hesabın varsa bunlar bu cihazda kalır.</p>
+  <p>Hesap silmenin istisnaları şunlar. (1) Satın alma kayıtları: Apple ya da Google satın alma geçmişini kendi politikalarına göre saklar; RevenueCat satın alma geçmişini biz silene kadar saklar. (2) Reklam ölçümü: bir Apple Search Ads kaydı oluştuysa (bkz. Abonelikler ve reklam ölçümü) biz silene kadar RevenueCat'te kalır. RevenueCat kayıtlarının silinmesini bizden isteyebilirsin. (3) Tanılama: tanılama sayaçları PostHog'da, çökme raporları Sentry'de — ikisi de Avrupa Birliği'nde, her projede geçerli saklama süresi kadar tutulur ve süre sonunda otomatik silinir. Sebebi yapısal: kayıtlar rastgele bir kurulum kimliğine bağlı ve o kimlikten sana giden bir bağ yok, yani zincirleme silmenin bulacağı bir şey yok. İçlerinde ad, e-posta, vücut ağırlığı ya da serbest metin yoktur. PROFİL'den tanılamayı kapattığın anda tanılama sayacı ve çökme raporu gönderimi durur.</p>
 </section>
 <section>
   <h2>Çocuklar</h2>
@@ -200,12 +238,15 @@ a { color: #4FC3F7; }
 </section>
 <section>
   <h2>Değişiklikler ve iletişim</h2>
-  <p>Bu politika esaslı biçimde değişirse, değişiklik yürürlüğe girmeden önce uygulama içinde gösterilir.</p>
+  <p>Bu politika esaslı biçimde değişirse, değişikliği sana uygulanmadan önce uygulama içinde gösteririz.</p>
   <p>Soru ve veri talepleri: abdullahakdag68@gmail.com</p>
+  <p>Veri sorumlusu: Ahmet Selim Tekiz, Türkiye'de bireysel geliştirici. İletişim: abdullahakdag68@gmail.com.</p>
+  <p>Brezilya için veri koruma iletişimi (LGPD “encarregado”): ilgili kişilerin ve ANPD'nin talepleri aynı kanaldan, abdullahakdag68@gmail.com adresine iletilebilir.</p>
 </section>
+  </div>
 
   <footer>
-    THE SYSTEM · <a href="./index.html">All documents</a><br>
+    THE SYSTEM · <a href="./index.html">All documents</a> · <a href="./delete.html">Delete your account</a><br>
     This page is generated from the same text shown inside the app.
   </footer>
 </main>
